@@ -1,6 +1,6 @@
 {
   "name": "redux-idle-dispatcher",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Idle your redux app",
   "main": "dist/redux-idle-dispatcher.js",
   "browser": "dist/redux-idle-dispatcher.umd.js",
@@ -11,7 +11,7 @@
     "prepare": "npm run build",
     "pretest": "npm run build",
     "test": "mocha --exit",
-    "release": "npm run build && npm test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
+    "release": "npm run build && npm test && git commit -am \"$npm_package_version\" && git tag \"$npm_package_version\" && git push && git push --tags && npm publish"
   },
   "repository": {
     "type": "git",

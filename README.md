@@ -13,8 +13,6 @@ The action is debounced so that it's only called once after the duration of idle
 
 ## Usage
 
-`reduxIdleDispatcher(store[, timeout][, action])`
-
 ```js
 const unsubscriber = reduxIdleDispatcher(
   store,    // your redux store
