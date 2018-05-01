@@ -14,9 +14,9 @@ The action is debounced so that it's only called once after the duration of idle
 ## Usage
 
 ```js
-const store = createStore(...) // your redux store
-const unsubscriber = reduxIdleDispatcher(store, {
-  action: {type: 'IDLE'}, // default is {type: '@@redux-idle-dispatcher/IDLE'}
-  timeout: 15000 // default is 30000 (ms)
-})
+const unsubscriber = reduxIdleDispatcher(
+  store,  // your redux store
+  action, // default is {type: '@@redux-idle-dispatcher/IDLE'}
+  timeout // default is 30000 (ms)
+)
 ```

@@ -1,0 +1,45 @@
+{
+  "name": "redux-idle-dispatcher",
+  "version": "1.0.1",
+  "description": "Idle your redux app",
+  "main": "dist/redux-idle-dispatcher.js",
+  "browser": "dist/redux-idle-dispatcher.umd.js",
+  "module": "dist/redux-idle-dispatcher.es.js",
+  "scripts": {
+    "dev": "microbundle watch",
+    "build": "microbundle",
+    "prepare": "npm run build",
+    "pretest": "npm run build",
+    "test": "mocha --exit",
+    "release": "npm run build && npm test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/whiskeredwonder/redux-idle-dispatcher"
+  },
+  "keywords": [
+    "redux",
+    "idle",
+    "requestAnimationFrame",
+    "requestIdleCallback"
+  ],
+  "files": [
+    "index.js",
+    "dist"
+  ],
+  "author": "Brian Wendt <brianwendt@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "just-debounce": "^1.0.0",
+    "raf": "^3.4.0",
+    "ric-shim": "^1.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "microbundle": "^0.4.4",
+    "mocha": "^5.1.1",
+    "redux": "^4.0.0",
+    "sinon": "^5.0.2",
+    "sinon-chai": "^3.0.0"
+  }
+}
