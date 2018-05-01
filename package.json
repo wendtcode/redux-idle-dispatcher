@@ -10,8 +10,7 @@
     "build": "microbundle",
     "prepare": "npm run build",
     "pretest": "npm run build",
-    "test": "mocha --exit",
-    "//release": "npm run build && npm test && git commit -am \"$npm_package_version\" && git tag \"$npm_package_version\" && git push && git push --tags && npm publish"
+    "test": "mocha --exit"
   },
   "repository": {
     "type": "git",
