@@ -1,6 +1,32 @@
-import raf from 'raf'
-import ric, {cancelIdleCallback} from 'ric-shim'
-import debouce from 'just-debounce'
+/* global requestIdleCallback, cancelIdleCallback, requestAnimationFrame */
+
+const requestIdleCallbackFallback = cb =>
+  setTimeout(() => {
+    const start = Date.now()
+    cb({
+      didTimeout: false,
+      timeRemaining() {
+        return Math.max(0, 50 - (Date.now() - start))
+      }
+    })
+  })
+
+const requestIdleCallbackIsSupported =
+  typeof requestIdleCallback !== 'undefined'
+const requestIdleCallback = requestIdleCallbackIsSupported
+  ? requestIdleCallback
+  : requestIdleCallbackFallback
+
+const debounce = (callback, time) => {
+  let interval
+  return (...args) => {
+    clearTimeout(interval)
+    interval = setTimeout(() => {
+      interval = null
+      callback(...args)
+    }, time)
+  }
+}
 
 export const IDLE = '@@redux-idle-dispatcher/IDLE'
 
@@ -39,9 +65,9 @@ function reduxIdleDispatcher(store, timeout = 30000, action = {type: IDLE}) {
     }
   }
 
-  const debouncedIdleDispatcher = debouce(() => {
-    const rafHandle = raf(() => {
-      const ricHandle = ric(idleDispatcher)
+  const debouncedIdleDispatcher = debounce(() => {
+    requestAnimationFrame(() => {
+      requestIdleCallback(idleDispatcher)
     })
   }, timeout)
 

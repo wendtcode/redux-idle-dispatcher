@@ -1,4 +1,6 @@
-// global describe, beforeEach, it
+// global describe, beforeEach, afterEach, it
+
+require('raf/polyfill')
 
 const chai = require('chai')
 const {expect} = chai
