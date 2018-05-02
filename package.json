@@ -1,6 +1,6 @@
 {
   "name": "redux-idle-dispatcher",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Idle your redux app",
   "main": "dist/redux-idle-dispatcher.js",
   "browser": "dist/redux-idle-dispatcher.umd.js",

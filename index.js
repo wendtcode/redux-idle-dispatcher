@@ -72,6 +72,7 @@ function reduxIdleDispatcher(store, timeout = 30000, action = {type: IDLE}) {
   }, timeout)
 
   const unsubscriber = store.subscribe(debouncedIdleDispatcher)
+  debouncedIdleDispatcher()
 
   return (...args) => {
     unsubscribed = true

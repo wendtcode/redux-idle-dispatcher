@@ -55,7 +55,6 @@ describe('reduxIdleDispatcher', () => {
 
   it('dispatches a debounced idle action', done => {
     unsubscriber = reduxIdleDispatcher(store, 100)
-    store.dispatch({type: 'TEST_READY'})
     setTimeout(() => {
       expect(store.dispatch).to.have.been.calledWith(
         sinon.match.has('type', IDLE)
@@ -66,7 +65,6 @@ describe('reduxIdleDispatcher', () => {
 
   it('can dispatch a custom action', done => {
     unsubscriber = reduxIdleDispatcher(store, 100, {type: 'FOO_IDLE'})
-    store.dispatch({type: 'TEST_READY'})
     setTimeout(() => {
       expect(store.dispatch).to.have.been.calledWith(
         sinon.match.has('type', 'FOO_IDLE')
@@ -77,7 +75,6 @@ describe('reduxIdleDispatcher', () => {
 
   it('can debounce on a custom timeout', done => {
     unsubscriber = reduxIdleDispatcher(store, 400)
-    store.dispatch({type: 'TEST_READY'})
     setTimeout(() => {
       expect(store.dispatch).not.to.have.been.calledWith(
         sinon.match.has('type', IDLE)
@@ -93,16 +90,15 @@ describe('reduxIdleDispatcher', () => {
 
   it('provides a handle to unsubscribe', done => {
     unsubscriber = reduxIdleDispatcher(store, 100)
-    store.dispatch({type: 'TEST_READY'})
     setTimeout(() => {
-      expect(store.dispatch.callCount, '[pre-unsubscribe]').to.equal(2)
+      expect(store.dispatch.callCount, '[pre-unsubscribe]').to.equal(1)
       expect(unsubscriber).to.be.a('function')
 
       unsubscriber()
       unsubscriber = null // so afterEach doesn't try it again
 
       setTimeout(() => {
-        expect(store.dispatch.callCount, '[post-unsubscribe]').to.equal(2)
+        expect(store.dispatch.callCount, '[post-unsubscribe]').to.equal(1)
         done()
       }, 200)
     }, 150)
