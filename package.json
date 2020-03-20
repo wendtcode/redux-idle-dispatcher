@@ -6,7 +6,6 @@
   "browser": "dist/redux-idle-dispatcher.umd.js",
   "module": "dist/redux-idle-dispatcher.es.js",
   "scripts": {
-    "preinstall": "npx npm-force-resolutions",
     "dev": "microbundle watch",
     "build": "microbundle",
     "prepare": "npm run build",
@@ -27,19 +26,21 @@
     "index.js",
     "dist"
   ],
-  "author": "Brian Wendt <brian@wendtcode.com>",
+  "author": "Brian Wendt <me@brianwendt.com>",
   "license": "MIT",
   "devDependencies": {
-    "chai": "^4.1.2",
-    "microbundle": "^0.4.4",
-    "mocha": "^5.1.1",
-    "prettier": "^1.12.1",
-    "raf": "^3.4.0",
-    "redux": "^4.0.0",
-    "sinon": "^5.0.2",
-    "sinon-chai": "^3.0.0"
+    "chai": "^4.2.0",
+    "microbundle": "^0.12.0-next.7",
+    "mocha": "^7.1.1",
+    "prettier": "^1.19.1",
+    "raf": "^3.4.1",
+    "redux": "^4.0.5",
+    "sinon": "^9.0.1",
+    "sinon-chai": "^3.5.0"
   },
-  "resolutions": {
-    "js-yaml": "3.13.1"
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "bracketSpacing": false
   }
 }
