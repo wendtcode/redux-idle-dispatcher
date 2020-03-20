@@ -28,7 +28,7 @@ const debounce = (callback, time) => {
   }
 }
 
-export const IDLE = '@@redux-idle-dispatcher/IDLE'
+const IDLE = '@@redux-idle-dispatcher/IDLE'
 
 Object.defineProperty(reduxIdleDispatcher, 'IDLE', {
   get() {
