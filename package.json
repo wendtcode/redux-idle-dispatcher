@@ -1,6 +1,6 @@
 {
   "name": "redux-idle-dispatcher",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Idle your redux app",
   "main": "dist/redux-idle-dispatcher.js",
   "browser": "dist/redux-idle-dispatcher.umd.js",
@@ -15,6 +15,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/wendtcode/redux-idle-dispatcher"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "keywords": [
     "redux",
