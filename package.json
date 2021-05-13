@@ -19,7 +19,7 @@
     "url": "https://github.com/wendtcode/redux-idle-dispatcher"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://registry.npmjs.org/"
   },
   "keywords": [
     "redux",
@@ -28,7 +28,6 @@
     "requestIdleCallback"
   ],
   "files": [
-    "src/index.ts",
     "dist"
   ],
   "author": "Brian Wendt <me@brianwendt.com>",
